@@ -16,19 +16,19 @@ VsCodeServer:
     code-server@:
       Paths:
       topology_status: 'starred'
-      pinned: 'yes'
+      pinned: 'no'
     node:
       Paths:
         - '/usr/lib/code-server'
       topology_status: 'starred'
-      pinned: 'yes'
+      pinned: 'no'
 Jira:
   Services:
     java:
       Paths:
         - '/atlassian/jira'
       topology_status: 'starred'
-      pinned: 'yes'
+      pinned: 'no'
 
 Confluence:
   Services:
@@ -36,6 +36,6 @@ Confluence:
       Paths:
         - '/atlassian/confluence'
       topology_status: 'starred'
-      pinned: 'yes'
+      pinned: 'no'
 
 
