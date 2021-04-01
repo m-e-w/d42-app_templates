@@ -32,11 +32,9 @@ def main():
         data[template] = {
             "service_details": []
         }
-        service_names = []
 
         for service in templates[template]['Services']:
             service_paths = []
-            service_names.append(service)
 
             if templates[template]['Services'][service]['Paths']:
                 for path in templates[template]['Services'][service]['Paths']:
@@ -72,7 +70,7 @@ if __name__ == '__main__':
                
             service_instance = {
                 "service_detail_id": svc['si_pk'],
-                "pinned": "yes",
+                "pinned": svc['pinned'],
                 "topology_status": svc['topology_status'],
                 "appcomps": appcomp['name']
             }

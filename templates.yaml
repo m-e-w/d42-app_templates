@@ -26,7 +26,15 @@ Jira:
   Services:
     java:
       Paths:
-        - /opt/atlassian/jira/jr
+        - /atlassian/jira
+      topology_status: starred
+      pinned: yes
+
+Confluence:
+  Services:
+    java:
+      Paths:
+        - /atlassian/confluence
       topology_status: starred
       pinned: yes
 
