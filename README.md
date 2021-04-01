@@ -1,42 +1,69 @@
 # d42-apptemplates
+  - [1. Description](#1-description)
+  - [2. Features](#2-features)
+  - [3. Requirements](#3-requirements)
+  - [4. How to Use](#4-how-to-use)
+    - [4.1. cd to d42-apptemplates and Create a new virtualenv](#41-cd-to-d42-apptemplates-and-create-a-new-virtualenv)
+    - [4.2. Activate the virtual environment](#42-activate-the-virtual-environment)
+    - [4.3. Install requirements](#43-install-requirements)
+    - [4.4. Rename config.yaml.example to config.yaml and fill out the required fields](#44-rename-configyamlexample-to-configyaml-and-fill-out-the-required-fields)
+    - [4.5. Replace example templates in templates.yaml with your own](#45-replace-example-templates-in-templatesyaml-with-your-own)
+    - [4.6. Run](#46-run)
+    - [4.7. Schedule via cron](#47-schedule-via-cron)
+  - [5. How it Works](#5-how-it-works)
+    - [5.1. Example template:](#51-example-template)
+  - [6. Example Output](#6-example-output)
+  - [7. Example Screenshots](#7-example-screenshots)
+
+## 1. Description
 Quick way to define templates to create application components for apps that Device42 does not support out of the box and pin/star services accordingly.
 
-## Features
+## 2. Features
 - Automatically pin / set topology status for service instances matching on name or cmd path args.
 - Automatically create application component records on devices with associated service instances
 
-## Requirements
+## 3. Requirements
 - Python 3.6.9 or > 
     - PyYAML==5.4.1
     - requests==2.25.1
 - Device42 MA 16.22.00.1612807182 or >
 
-## How to Use
-### 1. Create a new virtualenv 
+## 4. How to Use
+### 4.1. cd to d42-apptemplates and Create a new virtualenv 
 
-    venv d42-apptemplates
+    venv venv
 
-### 2. Install requirements
+OR
+
+    python3 -m venv venv
+
+
+
+### 4.2. Activate the virtual environment
+
+    source venv/bin/activate
+
+### 4.3. Install requirements
 
     pip install -r requirements.txt
 
-### 3. Rename config.yaml.example to config.yaml and fill out the required fields
+### 4.4. Rename config.yaml.example to config.yaml and fill out the required fields
 
-### 4. Replace example templates in templates.yaml with your own
+### 4.5. Replace example templates in templates.yaml with your own
 
-### 5. Run 
+### 4.6. Run 
 
     python starter.py
 
-### 6. Schedule via cron
+### 4.7. Schedule via cron
 In crontab add a line like the following to set your command execution schedule:
 
     0 0 * * * python /home/your_user_here/d42-apptemplates/starter.py
 
 This will run the script every night at midnight.
 
-## How it Works
-### Example template:
+## 5. How it Works
+### 5.1. Example template:
 
     Confluence: -- This is the name of the application component
         Services: -- Define services to query d42 for
@@ -48,6 +75,7 @@ This will run the script every night at midnight.
 
 In the above example, the script will query Device42 and return service instances with the service display name 'java' where the service command args match any of the paths defined. It will then create application component records 'Confluence - DEVICE_NAME' and then update any associated service instances.
 
+## 6. Example Output
 Below is sample output returned from executing the script:
 
     **********  Posting Application Components  **********
@@ -147,6 +175,7 @@ Below is sample output returned from executing the script:
     POST: {'service_detail_id': 93657, 'pinned': 'no', 'topology_status': 'starred', 'appcomps': 'Confluence - atlassian-001.device42.pvt'}
     Response: {'msg': ['service_detail added/updated', 93657, 'java', True, False], 'code': 0}
 
+## 7. Example Screenshots
 Newly created application component record
 ![](./screenshots/screenshot_01.PNG)
 Associated service instancees based on the template
