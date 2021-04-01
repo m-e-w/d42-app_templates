@@ -2,40 +2,40 @@ Docker:
   Services:
     docker-proxy:
       Paths:
-        - /usr/bin/docker-proxy
-        - /usr2/bin/docker-proxy
-      topology_status: normal
-      pinned: no
+        - '/usr/bin/docker-proxy'
+        - '/usr2/bin/docker-proxy'
+      topology_status: 'normal'
+      pinned: 'no'
     docker:
       Paths:
-      topology_status: normal
-      pinned: no
+      topology_status: 'normal'
+      pinned: 'no'
 
 VsCodeServer:
   Services:
     code-server@:
       Paths:
-      topology_status: starred
-      pinned: yes
+      topology_status: 'starred'
+      pinned: 'yes'
     node:
       Paths:
-        - /usr/lib/code-server
-      topology_status: starred
-      pinned: yes
+        - '/usr/lib/code-server'
+      topology_status: 'starred'
+      pinned: 'yes'
 Jira:
   Services:
     java:
       Paths:
-        - /atlassian/jira
-      topology_status: starred
-      pinned: yes
+        - '/atlassian/jira'
+      topology_status: 'starred'
+      pinned: 'yes'
 
 Confluence:
   Services:
     java:
       Paths:
-        - /atlassian/confluence
-      topology_status: starred
-      pinned: yes
+        - '/atlassian/confluence'
+      topology_status: 'starred'
+      pinned: 'yes'
 
 
