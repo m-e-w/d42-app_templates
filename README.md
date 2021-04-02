@@ -1,4 +1,4 @@
-# d42-apptemplates
+# d42-app_templates
   - [1. Description](#1-description)
   - [2. Features](#2-features)
   - [3. Requirements](#3-requirements)
